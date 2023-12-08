@@ -1,6 +1,6 @@
 **Projeto Livraria**
 
-**Aluno Desenvolvedores: Gaston Gouveia, Jorge Lemos, Ryan Silva, Talles Ian, Vinicius Honorato**
+**Alunos Desenvolvedores: Gaston Gouveia, Jorge Lemos, Ryan Silva, Talles Ian, Vinicius Honorato**
 
 **Disciplina: Dispositivos Móveis**
 
