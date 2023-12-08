@@ -1,7 +1,7 @@
-className= "font-bold" Projeto Livraria
+**Projeto Livraria**
 
-#Desenvolvedores: Gaston Gouveia, Jorge Lemos, Ryan Silva, Vinicius Honorato
+**Desenvolvedores: Gaston Gouveia, Jorge Lemos, Ryan Silva, Vinicius Honorato**
 
-#Disciplina: Dispositivos Móveis
+**Disciplina: Dispositivos Móveis**
 
-#Professor: Antônio 
+**Professor: Antônio**
