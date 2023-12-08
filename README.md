@@ -1,4 +1,4 @@
-#Projeto Livraria
+className= "font-bold" Projeto Livraria
 
 #Desenvolvedores: Gaston Gouveia, Jorge Lemos, Ryan Silva, Vinicius Honorato
 
