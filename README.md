@@ -1,7 +1,7 @@
 **Projeto Livraria**
 
-**Desenvolvedores: Gaston Gouveia, Jorge Lemos, Ryan Silva, Vinicius Honorato**
+**Aluno Desenvolvedores: Gaston Gouveia, Jorge Lemos, Ryan Silva, Talles Ian, Vinicius Honorato**
 
 **Disciplina: Dispositivos Móveis**
 
-**Professor: Antônio**
+**Professor: Antônio Correia de Sá Barretos Neto**
