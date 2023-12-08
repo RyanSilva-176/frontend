@@ -1,4 +1,4 @@
-**Projeto Livraria**
+**Livraria Conecta IF**
 
 **Alunos Desenvolvedores: Gaston Gouveia, Jorge Lemos, Ryan Silva, Talles Ian, Vinicius Honorato**
 
