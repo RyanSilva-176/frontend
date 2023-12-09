@@ -14,6 +14,11 @@ export default function Page() {
             <Text className={styles.buttonText}>Show Details</Text>
           </TouchableOpacity>
         </Link>
+        <Link href={{ pathname: '/collection', params: { name: 'Dan' } }} asChild>
+          <TouchableOpacity className={styles.button}>
+            <Text className={styles.buttonText}>Collection</Text>
+          </TouchableOpacity>
+        </Link>
       </View>
     </View>
   );
