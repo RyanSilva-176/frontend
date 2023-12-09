@@ -1,7 +1,9 @@
 import { Feather } from '@expo/vector-icons';
 import { Stack, useRouter } from 'expo-router';
 import { Text, TouchableOpacity, View } from 'react-native';
-import { HeaderRight } from './collection';
+import { HeaderRightCloud } from './cloud';
+import { HeaderRightCollection } from './collection';
+import { HeaderRightSingle } from './single';
 
 export default function Layout() {
   const router = useRouter();
@@ -28,7 +30,23 @@ export default function Layout() {
         options={{
           title: 'Collection',
           headerLeft: () => <BackButton />,
-          headerRight: () => <HeaderRight />,
+          headerRight: () => <HeaderRightCollection />,
+        }}
+      />
+      <Stack.Screen
+        name="single"
+        options={{
+          title: 'Single',
+          headerLeft: () => <BackButton />,
+          headerRight: () => <HeaderRightSingle />,
+        }}
+      />
+      <Stack.Screen
+        name="cloud"
+        options={{
+          title: 'Cloud',
+          headerLeft: () => <BackButton />,
+          headerRight: () => <HeaderRightCloud />,
         }}
       />
     </Stack>
