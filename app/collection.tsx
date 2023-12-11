@@ -1,5 +1,7 @@
 /* eslint-disable no-unused-expressions */
 import Ionicons from '@expo/vector-icons/Ionicons';
+import booksData from 'books.json';
+import { Link } from 'expo-router';
 import { Text, TouchableOpacity, View, ScrollView, ImageSourcePropType, Image } from 'react-native';
 
 export const HeaderRightCollection = () => (
@@ -36,10 +38,11 @@ const NavTags = () => (
 interface BookProps {
   title: string;
   thumbnail: ImageSourcePropType;
+  onPress: () => void;
 }
 
-const Book: React.FC<BookProps> = ({ title, thumbnail }) => (
-  <TouchableOpacity className={styles.book}>
+const Book: React.FC<BookProps> = ({ title, thumbnail, onPress }) => (
+  <TouchableOpacity className={styles.book} onPress={onPress}>
     <View className={styles.thumbnail}>
       {thumbnail ? (
         <Image source={thumbnail} className={styles.thumbnailImage} />
@@ -52,7 +55,7 @@ const Book: React.FC<BookProps> = ({ title, thumbnail }) => (
       <Ionicons className={styles.progressIcon} name="checkmark-done-outline" size={24} />
     </View>
     <View>
-      <Text>{title}</Text>
+      <Text className={styles.bookTitle}>{title}</Text>
     </View>
   </TouchableOpacity>
 );
@@ -64,16 +67,29 @@ export default function Collection() {
       <View className={styles.main}>
         <Text className={styles.title}>Tag atual</Text>
         <View className={styles.booksContainer}>
-          <Book title="Book 1" thumbnail={require('../assets/images/book1.jpg')} />
-          <Book title="Book 2" thumbnail={require('../assets/images/book2.jpeg')} />
-          <Book title="Book 3" thumbnail={require('../assets/images/book3.jpeg')} />
-          <Book title="Book 4" thumbnail={require('../assets/images/book4.jpeg')} />
-          <Book title="Book 5" thumbnail={require('../assets/images/book5.jpeg')} />
-          <Book title="Book 6" thumbnail={require('../assets/images/book6.jpeg')} />
-          <Book title="Book 7" thumbnail={require('../assets/images/book7.jpeg')} />
-          <Book title="Book 8" thumbnail={require('../assets/images/book8.jpeg')} />
-          <Book title="Book 9" thumbnail={require('../assets/images/book9.jpeg')} />
-          <Book title="Book 10" thumbnail={require('../assets/images/book10.jpeg')} />
+          {booksData.map((book) => (
+            <Link
+              href={{
+                pathname: '/single',
+                params: {
+                  bookId: book.id,
+                  bookTitle: book.title,
+                  bookAuthor: book.author,
+                  bookCover: book.cover,
+                  bookSummary: book.summary,
+                },
+              }}
+              asChild>
+              <Book
+                title={book.title}
+                thumbnail={{ uri: book.cover }}
+                key={book.id}
+                onPress={() => {
+                  console.log('Book clicked:', book.title);
+                }}
+              />
+            </Link>
+          ))}
         </View>
       </View>
     </ScrollView>
@@ -90,7 +106,8 @@ const styles = {
   subtitle: 'text-4xl text-gray-700',
   navTags: 'flex-row items-center justify-between bg-gray-200 rounded-[4px] p-2',
   booksContainer: 'flex flex-row flex-wrap justify-between mt-4',
-  book: 'h-[200px] w-[100px] mb-4',
+  book: 'h-[200px] w-[100px] mb-6',
+  bookTitle: 'truncate h-[40px] text-sm font-bold',
   thumbnail: 'bg-gray-500 h-[70%] w-[100%] rounded-[8px]',
   thumbnailImage: 'h-full w-full rounded-[8px]',
   progress: 'flex flex-row justify-between items-center mt-2',

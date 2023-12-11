@@ -1,4 +1,5 @@
 import Ionicons from '@expo/vector-icons/Ionicons';
+import { useRoute } from '@react-navigation/native';
 import { Text, TouchableOpacity, View, ScrollView, Image } from 'react-native';
 
 export const HeaderRightSingle = () => (
@@ -12,12 +13,23 @@ export const HeaderRightSingle = () => (
   </View>
 );
 
-export default function Collection() {
+interface BookParams {
+  bookId: string;
+  bookTitle: string;
+  bookAuthor: string;
+  bookCover: string;
+  bookSummary: string;
+}
+
+export default function Single() {
+  const route = useRoute();
+  const { bookTitle, bookAuthor, bookCover, bookSummary } = route.params as BookParams;
+
   return (
     <ScrollView>
       {/* Banner */}
       <View className={styles.banner}>
-        <Image source={require('../assets/images/book1.jpg')} className={styles.imageBanner} />
+        <Image source={{ uri: bookCover }} className={styles.imageBanner} />
       </View>
       <View className={styles.container}>
         <View className={styles.main}>
@@ -25,15 +37,12 @@ export default function Collection() {
           <View className={styles.bookDetailsContainer}>
             <View className={styles.bookDetails}>
               {/* Book title */}
-              <Text className={styles.bookTitle}>Book Title</Text>
+              <Text className={styles.bookTitle}>{bookTitle}</Text>
               {/* Book Image */}
               <TouchableOpacity className={styles.authorDetails}>
-                <Image
-                  source={require('../assets/images/book1.jpg')}
-                  className={styles.imageAuthor}
-                />
+                <Image source={{ uri: bookCover }} className={styles.imageAuthor} />
                 {/* Authors name */}
-                <Text className={styles.authorName}>Author Name</Text>
+                <Text className={styles.authorName}>{bookAuthor}</Text>
               </TouchableOpacity>
               {/* Book popularity */}
               <View className={styles.bookInfo}>
@@ -81,18 +90,7 @@ export default function Collection() {
           </View>
           {/* Description */}
           <View className={styles.description}>
-            <Text>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptas. Quisquam
-              quos, quia voluptates voluptate, quae, quibusdam voluptatum quod quas dolorum
-              voluptatibus laboriosam. Quisquam, voluptas. Quisquam quos, quia voluptates voluptate,
-              quae, quibusdam voluptatum quod quas dolorum voluptatibus laboriosam.
-            </Text>
-            <Text>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptas. Quisquam
-              quos, quia voluptates voluptate, quae, quibusdam voluptatum quod quas dolorum
-              voluptatibus laboriosam. Quisquam, voluptas. Quisquam quos, quia voluptates voluptate,
-              quae, quibusdam voluptatum quod quas dolorum voluptatibus laboriosam.
-            </Text>
+            <Text>{bookSummary}</Text>
           </View>
         </View>
       </View>
